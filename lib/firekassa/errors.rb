@@ -5,11 +5,11 @@
 module Firekassa
   # Standard API error
   class Error < StandardError
-    attr_reader :code, :response_body
+    attr_reader :code, :data
 
     def initialize(message, code)
       @code = code
-      @response_body = message
+      @data = message
       super("Error code #{code} #{message}")
     end
   end

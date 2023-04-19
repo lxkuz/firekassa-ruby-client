@@ -1,0 +1,59 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://admin.vanilapay.com/api/v2/transactions/507122561
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Authorization:
+      - Bearer wE5V6Jh51mdh3ZQ1LuJCDZC6Gw6SHvZ9curDSEBmdSjh8CDCS33puZJ71fGNgzmx
+      Content-Type:
+      - application/json
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Wed, 19 Apr 2023 14:50:20 GMT
+      Content-Type:
+      - application/json
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Vary:
+      - Accept-Encoding
+      - Accept-Language
+      X-Powered-By:
+      - PHP/8.1.11
+      Cache-Control:
+      - no-cache, private
+      Content-Language:
+      - ru_RU
+      Cf-Cache-Status:
+      - DYNAMIC
+      Report-To:
+      - '{"endpoints":[{"url":"https:\/\/a.nel.cloudflare.com\/report\/v3?s=p1u1jQI3W7s7TzZdukNtj1QdgVmD0xt41OPO20vWzFkBT57TgBJwFEatTl7b2ivcGbnMwFf2gt3chg8LJ%2B1iE7T3LNtDxy%2Bw5tAVsCCCvpDT%2FN7EElPNXaNLF6SNgSUXavAxrHTI"}],"group":"cf-nel","max_age":604800}'
+      Nel:
+      - '{"success_fraction":0,"report_to":"cf-nel","max_age":604800}'
+      Server:
+      - cloudflare
+      Cf-Ray:
+      - 7ba5f59409ecd967-HEL
+      Alt-Svc:
+      - h3=":443"; ma=86400, h3-29=":443"; ma=86400
+    body:
+      encoding: UTF-8
+      string: '{"id":"507122561","created_at":"2023-04-19T17:29:00+03:00","updated_at":"2023-04-19T17:29:01+03:00","action":"deposit","method":"wallet-card","payment_id":"332529680","order_id":"123","account":"12345","amount":"5000.00","payment_amount":"0.00","commission":"25.00","comment":null,"status":"process","payment_url":null,"payment_code":null,"payment_error_code":null,"payment_error":null,"currency":"RUB"}'
+    http_version:
+  recorded_at: Wed, 19 Apr 2023 14:50:20 GMT
+recorded_with: VCR 5.1.0

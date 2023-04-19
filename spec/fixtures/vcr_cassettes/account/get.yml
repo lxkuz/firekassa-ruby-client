@@ -1,0 +1,59 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://admin.vanilapay.com/api/v2/accounts
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Authorization:
+      - Bearer wE5V6Jh51mdh3ZQ1LuJCDZC6Gw6SHvZ9curDSEBmdSjh8CDCS33puZJ71fGNgzmx
+      Content-Type:
+      - application/json
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Wed, 19 Apr 2023 14:54:32 GMT
+      Content-Type:
+      - application/json
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Vary:
+      - Accept-Encoding
+      - Accept-Language
+      X-Powered-By:
+      - PHP/8.1.11
+      Cache-Control:
+      - no-cache, private
+      Content-Language:
+      - ru_RU
+      Cf-Cache-Status:
+      - DYNAMIC
+      Report-To:
+      - '{"endpoints":[{"url":"https:\/\/a.nel.cloudflare.com\/report\/v3?s=NPkPRU6NAT8dx4Di8KNMdkitr633Qik29QxdTXU7FpVwwtz846wFCbG33p0LKAqHVczu%2F5sQ%2FZZJqA22pqYpqhX2nsU%2B19iTFNh0HMdvOhvgnSfxEIzqLUE1RAU%2Bi%2B%2FY44Mu6fam"}],"group":"cf-nel","max_age":604800}'
+      Nel:
+      - '{"success_fraction":0,"report_to":"cf-nel","max_age":604800}'
+      Server:
+      - cloudflare
+      Cf-Ray:
+      - 7ba5fbbb8d537888-VIE
+      Alt-Svc:
+      - h3=":443"; ma=86400, h3-29=":443"; ma=86400
+    body:
+      encoding: UTF-8
+      string: '{"items":[{"id":"18","is_default":true,"currency":"RUB","balance":"0.00","commission":"0.00"}],"page":{"number":1,"size":1}}'
+    http_version:
+  recorded_at: Wed, 19 Apr 2023 14:54:32 GMT
+recorded_with: VCR 5.1.0

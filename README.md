@@ -14,7 +14,57 @@ If bundler is not being used to manage dependencies, install the gem by executin
 
 ## Usage
 
-TODO: Write usage instructions here
+### Configure
+
+When you get your Site approved you can use it's secret key for making API requests.
+
+```ruby
+  require 'firekassa'
+
+  Firekassa.configure do |config|
+    config.base_url = "<BASE API URL>" # "https://admin.vanilapay.com"
+    config.api_token = "<YOUR SITE SECRET KEY>"
+  end
+```
+Now you can make API calls
+
+### Balance
+
+To get yoour account balance:
+
+```ruby
+  Firekassa::Balance.new.get # => { "balance": "2000.0" }
+```
+See [API method reference](https://admin.vanilapay.com/api/doc/v2#/operations/getBalance)
+
+### Account
+
+To list your Site accounts:
+```ruby
+  Firekassa::Account.new.list # => items: [ ... ]
+```
+See more info in tests and [API method reference](https://admin.vanilapay.com/api/doc/v2#/operations/getSiteAccounts)
+
+To show your concrete account info:
+```ruby
+  Firekassa::Balance.new.show(account_id) # => { account_data... }
+```
+See more info in tests and [API method reference](https://admin.vanilapay.com/api/doc/v2#/operations/getSiteAccount)
+
+
+### Deposit
+
+To create deposit:
+```ruby
+  Firekassa::Deposit.new.create(deposit_data) # => { trx data... }
+```
+See more info in tests and [API method reference](https://admin.vanilapay.com/api/doc/v2#/operations/createDepositTransaction)
+
+To show deposit data:
+```ruby
+  Firekassa::Deposit.new.show(deposit_id) # => { trx data... }
+```
+See more info in tests and [API method reference](https://admin.vanilapay.com/api/doc/v2#/operations/getTransaction)
 
 ## Development
 
