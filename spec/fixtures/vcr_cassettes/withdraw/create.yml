@@ -1,0 +1,60 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://admin.vanilapay.com/api/v2/withdrawal
+    body:
+      encoding: UTF-8
+      string: '{"order_id":"12341","method":"card","amount":"1.0","account":"12345","notification_url":"http://some.url/callback","success_url":"http://some.url/callback","fail_url":"http://some.url/callback","card_number":"4242424242424242","card_expire":"01/25","card_cvv":"123","ext_txn":"123","ext_date":"2020-01-01T00:00:00+03:00","ext_email":"test@mail.com","ext_ip":"127.0.0.1","ext_recipient_system":"Payeer
+        EUR","ext_recipient":"P121321","ext_c_to":"PREUR","card_type":"visa"}'
+    headers:
+      Authorization:
+      - Bearer wE5V6Jh51mdh3ZQ1LuJCDZC6Gw6SHvZ9curDSEBmdSjh8CDCS33puZJ71fGNgzmx
+      Content-Type:
+      - application/json
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 422
+      message: Unprocessable Entity
+    headers:
+      Date:
+      - Wed, 19 Apr 2023 15:31:12 GMT
+      Content-Type:
+      - application/json
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      X-Powered-By:
+      - PHP/8.1.11
+      Cache-Control:
+      - no-cache, private
+      Content-Language:
+      - ru_RU
+      Vary:
+      - Accept-Language
+      Cf-Cache-Status:
+      - DYNAMIC
+      Report-To:
+      - '{"endpoints":[{"url":"https:\/\/a.nel.cloudflare.com\/report\/v3?s=cMQbZ6q6vhRMndN2hbIwBqghM1FrjktOJtwWIVWM9KzB7wWCeyMfS5s1h%2FufNur1ADod7%2FdPqqgDW9wl52GCYmlVsbSmcmxQNophqqgJyCpG37FhN%2F8GugvGDmiKD4mwN8NfoSeA"}],"group":"cf-nel","max_age":604800}'
+      Nel:
+      - '{"success_fraction":0,"report_to":"cf-nel","max_age":604800}'
+      Server:
+      - cloudflare
+      Cf-Ray:
+      - 7ba631754c70fe24-HEL
+      Alt-Svc:
+      - h3=":443"; ma=86400, h3-29=":443"; ma=86400
+    body:
+      encoding: UTF-8
+      string: '{"message":"The given data was invalid","errors":{"amount":["Min amount
+        is 500.00."]}}'
+    http_version:
+  recorded_at: Wed, 19 Apr 2023 15:31:12 GMT
+recorded_with: VCR 5.1.0
