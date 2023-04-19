@@ -3,7 +3,7 @@
 module Firekassa
   # Configuration storage
   class Config
-    attr_accessor :base_url, :api_token
+    attr_accessor :base_url, :api_token, :faraday_block
 
     def initialize
       @base_url = nil

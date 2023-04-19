@@ -12,10 +12,10 @@ require "firekassa/errors"
 module Firekassa
   # Base API client
   class Client
-    def send_request(method, path, headers, body = {})
+    def send_request(method:, path:, headers: {}, body: {})
       conn = faraday_with_block(url: Firekassa.config.base_url)
-      conn.headers = headers
-      case method
+      conn.headers = build_headers(headers)
+      case method.to_s
       when "get" then response = conn.get(path)
       when "post" then response = conn.post(path, body.to_json)
       end
@@ -36,12 +36,14 @@ module Firekassa
       raise Firekassa::Error.new(response_body, response_code)
     end
 
-    def prepare_get_request(path)
-      headers = {}
-      send_request("get", path, headers)
-    end
-
     private
+
+    def build_headers(headers)
+      {
+        "Authorization" => "Bearer #{Firekassa.config.api_token}",
+        "Content-Type" => "application/json"
+      }.merge(headers)
+    end
 
     def faraday_with_block(options)
       Faraday.new(options)
