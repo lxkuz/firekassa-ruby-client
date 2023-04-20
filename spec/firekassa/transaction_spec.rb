@@ -115,25 +115,51 @@ RSpec.describe Firekassa::Transaction do
     end
   end
 
-  describe "#list" , vcr: "transaction/list" do
+  describe "#list", vcr: "transaction/list" do
     subject(:result) { transaction.list }
 
     let(:response) do
       {
-        "items" => [{"account"=>"9222", "action"=>"deposit", "amount"=>"20.00", "comment"=>nil, "commission"=>"0.10", "created_at"=>"2023-04-20T18:47:01+03:00", "currency"=>"RUB", "id"=>"507164249", "method"=>"wallet-card", "order_id"=>"911", "payment_amount"=>"0.00", "payment_code"=>nil, "payment_error"=>nil, "payment_error_code"=>nil, "payment_id"=>"332538830", "payment_url"=>nil, "status"=>"expired", "updated_at"=>"2023-04-20T19:47:06+03:00"}, {"account"=>"12345", "action"=>"deposit", "amount"=>"5000.00", "comment"=>nil, "commission"=>"25.00", "created_at"=>"2023-04-19T17:29:00+03:00", "currency"=>"RUB", "id"=>"507122561", "method"=>"wallet-card", "order_id"=>"123", "payment_amount"=>"0.00", "payment_code"=>nil, "payment_error"=>nil, "payment_error_code"=>nil, "payment_id"=>"332529680", "payment_url"=>nil, "status"=>"expired", "updated_at"=>"2023-04-19T18:29:03+03:00"}],
-        "page" => {"number"=>1, "size"=>20},
+        "items" => [
+          { "account" => "9222",
+            "action" => "deposit",
+            "amount" => "20.00",
+            "comment" => nil, "commission" => "0.10",
+            "created_at" => "2023-04-20T18:47:01+03:00",
+            "currency" => "RUB",
+            "id" => "507164249",
+            "method" => "wallet-card",
+            "order_id" => "911",
+            "payment_amount" => "0.00",
+            "payment_code" => nil, "payment_error" => nil, "payment_error_code" => nil, "payment_id" => "332538830",
+            "payment_url" => nil, "status" => "expired",
+            "updated_at" => "2023-04-20T19:47:06+03:00" },
+
+          { "account" => "12345",
+            "action" => "deposit",
+            "amount" => "5000.00",
+            "comment" => nil, "commission" => "25.00",
+            "created_at" => "2023-04-19T17:29:00+03:00",
+            "currency" => "RUB",
+            "id" => "507122561",
+            "method" => "wallet-card",
+            "order_id" => "123",
+            "payment_amount" => "0.00",
+            "payment_code" => nil,
+            "payment_error" => nil,
+            "payment_error_code" => nil,
+            "payment_id" => "332529680",
+            "payment_url" => nil,
+            "status" => "expired",
+            "updated_at" => "2023-04-19T18:29:03+03:00" }
+        ],
+        "page" => { "number" => 1,
+                    "size" => 20 }
       }
     end
 
     it "returns transaction response" do
       expect(result).to eq(response)
     end
-  end
-
-  xdescribe "#download_receipt" do
-  end
-
-
-  xdescribe "#send_to_email" do
   end
 end

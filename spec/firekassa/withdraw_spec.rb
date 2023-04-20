@@ -13,7 +13,7 @@ RSpec.describe Firekassa::Withdraw do
 
   let(:withdraw) { described_class.new }
 
-  xdescribe "#create" do
+  describe "#create", skip: "waiting for getting funds to play with" do
     subject(:result) { withdraw.create(withdraw_data) }
 
     let(:valid_withdraw_data) do
@@ -130,7 +130,7 @@ RSpec.describe Firekassa::Withdraw do
         {
           "amount" => "165.56",
           "message" => "Вывод на сумму: 165.56₽, по курсу: 1$ = 82.78₽",
-          "rate" => "82.7800",
+          "rate" => "82.7800"
         }
       end
 

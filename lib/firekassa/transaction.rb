@@ -16,8 +16,9 @@ module Firekassa
       send_request(method: :post, path: path)
     end
 
-    def list(filter: nil, page: nil, sort: nil)
+    def list
       # TODO: add proper URI encode
+      # filter: nil, page: nil, sort: nil
       path = "/api/v2/transactions"
       send_request(method: :get, path: path)
     end
