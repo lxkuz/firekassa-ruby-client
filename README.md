@@ -30,8 +30,7 @@ Now you can make API calls
 
 ### Balance
 
-To get yoour account balance:
-
+#### To get yoour account balance:
 ```ruby
   Firekassa::Balance.new.get # => { "balance": "2000.0" }
 ```
@@ -39,32 +38,68 @@ See [API method reference](https://admin.vanilapay.com/api/doc/v2#/operations/ge
 
 ### Account
 
-To list your Site accounts:
+#### To list your Site accounts:
 ```ruby
   Firekassa::Account.new.list # => items: [ ... ]
 ```
 See more info in tests and [API method reference](https://admin.vanilapay.com/api/doc/v2#/operations/getSiteAccounts)
 
-To show your concrete account info:
+#### To show your concrete account info:
 ```ruby
   Firekassa::Balance.new.show(account_id) # => { account_data... }
 ```
 See more info in tests and [API method reference](https://admin.vanilapay.com/api/doc/v2#/operations/getSiteAccount)
 
 
-### Deposit
+### Transactions
 
-To create deposit:
+#### To list transactions:
+```ruby
+  Firekassa::Transaction.new.list # => {items:[ trxs...] }
+```
+See more info in tests and [API method reference](https://admin.vanilapay.com/api/doc/v2#/operations/getTransactions)
+
+#### To create deposit:
 ```ruby
   Firekassa::Deposit.new.create(deposit_data) # => { trx data... }
 ```
 See more info in tests and [API method reference](https://admin.vanilapay.com/api/doc/v2#/operations/createDepositTransaction)
 
-To show deposit data:
+#### To create withdrawal:
 ```ruby
-  Firekassa::Deposit.new.show(deposit_id) # => { trx data... }
+  Firekassa::Withdraw.new.create(withdraw_data) # => { trx data... }
+```
+See more info in tests and [API method reference](https://admin.vanilapay.com/api/doc/v2#/operations/createWithdrawalTransaction)
+
+#### To show transaction data:
+```ruby
+  Firekassa::Transaction.new.show(deposit_id) # => { trx data... }
 ```
 See more info in tests and [API method reference](https://admin.vanilapay.com/api/doc/v2#/operations/getTransaction)
+
+#### Cancel transaction:
+```ruby
+  Firekassa::Transaction.new.cancel(id) # => { trx data... }
+```
+See more info in tests and [API method reference](https://admin.vanilapay.com/api/doc/v2#/operations/cancelTransaction)
+
+#### To get currency rate for withdrawal:
+```ruby
+  Firekassa::Withdraw.new.currency_rate(data) # => { rate data... }
+```
+See more info in tests and [API method reference](https://admin.vanilapay.com/api/doc/v2#/operations/getWithdrawalRate)
+
+#### To download transaction receipt:
+```ruby
+  Firekassa::Transaction.new.download_receipt(id)
+```
+See more info in tests and [API method reference](https://admin.vanilapay.com/api/doc/v2#/operations/downloadTransactionReceipt)
+
+To send transaction receipt to email:
+```ruby
+  Firekassa::Transaction.new.send_to_email(id)
+```
+See more info in tests and [API method reference](https://admin.vanilapay.com/api/doc/v2#/operations/sendTransactionReceipt)
 
 ## Development
 
