@@ -2,9 +2,11 @@
 
 require "firekassa/config"
 require "firekassa/version"
-require "firekassa/balance"
-require "firekassa/deposit"
 require "firekassa/account"
+require "firekassa/balance"
+require "firekassa/transaction"
+require "firekassa/deposit"
+require "firekassa/withdraw"
 
 # Head module
 module Firekassa

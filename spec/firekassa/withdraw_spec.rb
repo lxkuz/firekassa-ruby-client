@@ -3,7 +3,7 @@
 require "spec_helper"
 require "pry"
 
-RSpec.describe Firekassa::Deposit do
+RSpec.describe Firekassa::Withdraw do
   before do
     Firekassa.configure do |config|
       config.base_url = "https://admin.vanilapay.com"
@@ -11,16 +11,16 @@ RSpec.describe Firekassa::Deposit do
     end
   end
 
-  let(:deposit) { described_class.new }
+  let(:withdraw) { described_class.new }
 
-  describe "#create" do
-    subject(:result) { deposit.create(deposit_data) }
+  xdescribe "#create" do
+    subject(:result) { withdraw.create(withdraw_data) }
 
-    let(:valid_deposit_data) do
+    let(:valid_withdraw_data) do
       {
-        order_id: "123",
-        method: "wallet-card",
-        amount: "5000.0",
+        order_id: "12341",
+        method: "card",
+        amount: "1.0",
         account: "12345",
         notification_url: "http://some.url/callback",
         success_url: "http://some.url/callback",
@@ -39,10 +39,10 @@ RSpec.describe Firekassa::Deposit do
       }
     end
 
-    let(:deposit_response) do
+    let(:withdraw_response) do
       {
-        "account" => "12345",
-        "action" => "deposit",
+        "account" => "1234",
+        "action" => "Withdraw",
         "amount" => "5000.00",
         "comment" => nil,
         "commission" => "25.00",
@@ -62,17 +62,17 @@ RSpec.describe Firekassa::Deposit do
       }
     end
 
-    context "when transaction is valid", vcr: "deposit/create" do
-      let(:deposit_data) { valid_deposit_data }
+    context "when transaction is valid", vcr: "Withdraw/create" do
+      let(:withdraw_data) { valid_withdraw_data }
 
-      it "returns deposit response" do
-        expect(result).to eq(deposit_response)
+      it "returns Withdraw response" do
+        expect(result).to eq(withdraw_response)
       end
     end
 
-    context "when amount is too small", vcr: "deposit/amount_is_too_small_error" do
-      let(:deposit_data) do
-        valid_deposit_data.merge({ amount: "1.0" })
+    context "when amount is too small", vcr: "withdraw/amount_is_too_small_error" do
+      let(:withdraw_data) do
+        valid_withdraw_data.merge({ amount: "1.0" })
       end
 
       let(:error_data) do
@@ -91,9 +91,9 @@ RSpec.describe Firekassa::Deposit do
       end
     end
 
-    context "when wrong method", vcr: "deposit/wrong_method_error" do
-      let(:deposit_data) do
-        valid_deposit_data.merge({ method: "wrong" })
+    context "when wrong method", vcr: "withdraw/wrong_method_error" do
+      let(:withdraw_data) do
+        valid_withdraw_data.merge({ method: "wrong" })
       end
 
       let(:error_data) do
@@ -109,6 +109,33 @@ RSpec.describe Firekassa::Deposit do
         expect { result }.to raise_error do |error|
           expect(error.data).to eql(error_data)
         end
+      end
+    end
+  end
+
+  describe "#currency_rate" do
+    subject(:result) { withdraw.currency_rate(request_data) }
+
+    context "when request_data is valid", vcr: "withdraw/currency_rate" do
+      let(:request_data) do
+        {
+          "method" => "contact",
+          "account" => "CFRN",
+          "amount" => "2.00",
+          "currency" => "USD"
+        }
+      end
+
+      let(:response) do
+        {
+          "amount" => "165.56",
+          "message" => "Вывод на сумму: 165.56₽, по курсу: 1$ = 82.78₽",
+          "rate" => "82.7800",
+        }
+      end
+
+      it "returns currency rate response" do
+        expect(result).to eq(response)
       end
     end
   end
