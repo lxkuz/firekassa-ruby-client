@@ -5,8 +5,7 @@ http_interactions:
     uri: https://admin.vanilapay.com/api/v2/deposit
     body:
       encoding: UTF-8
-      string: '{"order_id":"123","method":"wallet-card","amount":"5000.0","account":"12345","notification_url":"http://some.url/callback","success_url":"http://some.url/callback","fail_url":"http://some.url/callback","card_number":"4242424242424242","card_expire":"01/25","card_cvv":"123","ext_txn":"123","ext_date":"2020-01-01T00:00:00+03:00","ext_email":"test@mail.com","ext_ip":"127.0.0.1","ext_recipient_system":"Payeer
-        EUR","ext_recipient":"P121321","ext_c_to":"PREUR","card_type":"visa"}'
+      string: '{"order_id":"123","method":"h2h-a","amount":"5000.0","notification_url":"http://some.url/callback","success_url":"http://some.url/callback","fail_url":"http://some.url/callback","card_number":"4242424242424242","card_expire":"01/25","card_cvv":"123"}'
     headers:
       Authorization:
       - Bearer wE5V6Jh51mdh3ZQ1LuJCDZC6Gw6SHvZ9curDSEBmdSjh8CDCS33puZJ71fGNgzmx
@@ -53,7 +52,7 @@ http_interactions:
       - h3=":443"; ma=86400, h3-29=":443"; ma=86400
     body:
       encoding: UTF-8
-      string: '{"id":"507122561","created_at":"2023-04-19T17:29:00+03:00","updated_at":"2023-04-19T17:29:01+03:00","action":"deposit","method":"wallet-card","payment_id":"332529680","order_id":"123","account":"12345","amount":"5000.00","payment_amount":"0.00","commission":"25.00","comment":null,"status":"process","payment_url":null,"payment_code":null,"payment_error_code":null,"payment_error":null,"currency":"RUB"}'
+      string: '{"id":"507122561","created_at":"2023-04-19T17:29:00+03:00","updated_at":"2023-04-19T17:29:01+03:00","action":"deposit","method":"h2h-a","payment_id":"332529680","order_id":"123","amount":"5000.00","payment_amount":"0.00","commission":"25.00","comment":null,"status":"process","payment_url":"https://h2h.ecomgate.online/redirect/TESTjO3Vqw8L86Nwem46YbMTEST","payment_code":null,"payment_error_code":null,"payment_error":null,"currency":"RUB","wallet_number":"79163072582","card_number":null}'
     http_version:
   recorded_at: Wed, 19 Apr 2023 14:29:01 GMT
 recorded_with: VCR 5.1.0

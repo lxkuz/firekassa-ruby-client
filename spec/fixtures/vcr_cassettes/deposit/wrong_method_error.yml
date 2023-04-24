@@ -5,8 +5,7 @@ http_interactions:
     uri: https://admin.vanilapay.com/api/v2/deposit
     body:
       encoding: UTF-8
-      string: '{"order_id":"123","method":"wrong","amount":"5000.0","account":"12345","notification_url":"http://some.url/callback","success_url":"http://some.url/callback","fail_url":"http://some.url/callback","card_number":"4242424242424242","card_expire":"01/25","card_cvv":"123","ext_txn":"123","ext_date":"2020-01-01T00:00:00+03:00","ext_email":"test@mail.com","ext_ip":"127.0.0.1","ext_recipient_system":"Payeer
-        EUR","ext_recipient":"P121321","ext_c_to":"PREUR","card_type":"visa"}'
+      string: '{"order_id":"123","method":"wrong","amount":"5000.0","notification_url":"http://some.url/callback","success_url":"http://some.url/callback","fail_url":"http://some.url/callback","card_number":"4242424242424242","card_expire":"01/25","card_cvv":"123"}'
     headers:
       Authorization:
       - Bearer wE5V6Jh51mdh3ZQ1LuJCDZC6Gw6SHvZ9curDSEBmdSjh8CDCS33puZJ71fGNgzmx

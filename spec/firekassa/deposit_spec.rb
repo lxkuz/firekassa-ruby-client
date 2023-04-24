@@ -19,45 +19,37 @@ RSpec.describe Firekassa::Deposit do
     let(:valid_deposit_data) do
       {
         order_id: "123",
-        method: "wallet-card",
+        method: "h2h-a",
         amount: "5000.0",
-        account: "12345",
         notification_url: "http://some.url/callback",
         success_url: "http://some.url/callback",
         fail_url: "http://some.url/callback",
         card_number: "4242424242424242",
         card_expire: "01/25",
-        card_cvv: "123",
-        ext_txn: "123",
-        ext_date: "2020-01-01T00:00:00+03:00",
-        ext_email: "test@mail.com",
-        ext_ip: "127.0.0.1",
-        ext_recipient_system: "Payeer EUR",
-        ext_recipient: "P121321",
-        ext_c_to: "PREUR",
-        card_type: "visa"
+        card_cvv: "123"
       }
     end
 
     let(:deposit_response) do
       {
-        "account" => "12345",
         "action" => "deposit",
         "amount" => "5000.00",
         "comment" => nil,
         "commission" => "25.00",
         "created_at" => "2023-04-19T17:29:00+03:00",
         "currency" => "RUB",
+        "card_number" => nil,
         "id" => "507122561",
-        "method" => "wallet-card",
+        "method" => "h2h-a",
         "order_id" => "123",
         "payment_amount" => "0.00",
         "payment_code" => nil,
         "payment_error" => nil,
         "payment_error_code" => nil,
         "payment_id" => "332529680",
-        "payment_url" => nil,
+        "payment_url" => "https://h2h.ecomgate.online/redirect/TESTjO3Vqw8L86Nwem46YbMTEST",
         "status" => "process",
+        "wallet_number" => "79163072582",
         "updated_at" => "2023-04-19T17:29:01+03:00"
       }
     end
