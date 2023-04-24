@@ -61,12 +61,36 @@ See more info in tests and [API method reference](https://admin.vanilapay.com/ap
 
 #### To create deposit:
 ```ruby
-  Firekassa::Deposit.new.create(deposit_data) # => { trx data... }
+  deposit_data = {
+    order_id: "123", # payment ID from your system
+    method: "h2h-a", # host to host payment
+    amount: "5000.0",
+    # callbacks
+    notification_url: "http://some.url/callback",
+    success_url: "http://some.url/callback",
+    fail_url: "http://some.url/callback",
+    # card credentials
+    card_number: "4242424242424242",
+    card_expire: "01/25",
+    card_cvv: "123"
+  }
+  result = Firekassa::Deposit.new.create(deposit_data)
+  payment_url = result['payment_url'] # Customer should visit this link to proceed the payment
 ```
 See more info in tests and [API method reference](https://admin.vanilapay.com/api/doc/v2#/operations/createDepositTransaction)
 
 #### To create withdrawal:
 ```ruby
+  withdraw_data = {
+    order_id: "123123", # payment ID from your system
+    method: "card",
+    account: "4242424242424242",
+    amount: "100.00",
+    # callbacks
+    notification_url: "http://some.url/callback",
+    success_url: "http://some.url/callback",
+    fail_url: "http://some.url/callback"
+  }
   Firekassa::Withdraw.new.create(withdraw_data) # => { trx data... }
 ```
 See more info in tests and [API method reference](https://admin.vanilapay.com/api/doc/v2#/operations/createWithdrawalTransaction)
