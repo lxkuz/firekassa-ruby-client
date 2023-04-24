@@ -7,62 +7,51 @@ RSpec.describe Firekassa::Withdraw do
   before do
     Firekassa.configure do |config|
       config.base_url = "https://admin.vanilapay.com"
-      config.api_token = "wE5V6Jh51mdh3ZQ1LuJCDZC6Gw6SHvZ9curDSEBmdSjh8CDCS33puZJ71fGNgzmx"
+      config.api_token = "8ub1ReV5EwrZDLQS3LkwgQ19r1muidGYcPMBuvVt7VDFBGKwoeWXTg8mohZXFMu8"
     end
   end
 
   let(:withdraw) { described_class.new }
 
-  describe "#create", skip: "waiting for getting funds to play with" do
+  describe "#create" do
     subject(:result) { withdraw.create(withdraw_data) }
 
     let(:valid_withdraw_data) do
       {
-        order_id: "12341",
+        order_id: "9911_4",
         method: "card",
-        amount: "1.0",
-        account: "12345",
+        account: "4242424242424242",
+        amount: "22.00",
         notification_url: "http://some.url/callback",
         success_url: "http://some.url/callback",
-        fail_url: "http://some.url/callback",
-        card_number: "4242424242424242",
-        card_expire: "01/25",
-        card_cvv: "123",
-        ext_txn: "123",
-        ext_date: "2020-01-01T00:00:00+03:00",
-        ext_email: "test@mail.com",
-        ext_ip: "127.0.0.1",
-        ext_recipient_system: "Payeer EUR",
-        ext_recipient: "P121321",
-        ext_c_to: "PREUR",
-        card_type: "visa"
+        fail_url: "http://some.url/callback"
       }
     end
 
     let(:withdraw_response) do
       {
-        "account" => "1234",
-        "action" => "Withdraw",
-        "amount" => "5000.00",
+        "account" => "4242424242424242",
+        "action" => "withdrawal",
+        "amount" => "22.00",
         "comment" => nil,
-        "commission" => "25.00",
-        "created_at" => "2023-04-19T17:29:00+03:00",
+        "commission" => "50.44",
+        "created_at" => "2023-04-24T17:37:39+03:00",
         "currency" => "RUB",
-        "id" => "507122561",
-        "method" => "wallet-card",
-        "order_id" => "123",
+        "id" => "507311510",
+        "method" => "card",
+        "order_id" => "9911_4",
         "payment_amount" => "0.00",
         "payment_code" => nil,
         "payment_error" => nil,
         "payment_error_code" => nil,
-        "payment_id" => "332529680",
+        "payment_id" => "363092417",
         "payment_url" => nil,
         "status" => "process",
-        "updated_at" => "2023-04-19T17:29:01+03:00"
+        "updated_at" => "2023-04-24T17:37:39+03:00",
       }
     end
 
-    context "when transaction is valid", vcr: "Withdraw/create" do
+    context "when transaction is valid", vcr: "withdraw/create" do
       let(:withdraw_data) { valid_withdraw_data }
 
       it "returns Withdraw response" do
@@ -72,14 +61,14 @@ RSpec.describe Firekassa::Withdraw do
 
     context "when amount is too small", vcr: "withdraw/amount_is_too_small_error" do
       let(:withdraw_data) do
-        valid_withdraw_data.merge({ amount: "1.0" })
+        valid_withdraw_data.merge({ amount: "1.00" })
       end
 
       let(:error_data) do
         {
           "message" => "The given data was invalid",
           "errors" => {
-            "amount" => ["Min amount is 5000.00"]
+            "amount" => ["Min amount is 10.00."]
           }
         }
       end
@@ -128,9 +117,9 @@ RSpec.describe Firekassa::Withdraw do
 
       let(:response) do
         {
-          "amount" => "165.56",
-          "message" => "Вывод на сумму: 165.56₽, по курсу: 1$ = 82.78₽",
-          "rate" => "82.7800"
+          "amount" => "165.04",
+          "message" => "Вывод на сумму: 165.04₽, по курсу: 1$ = 82.52₽",
+          "rate" => "82.5200",
         }
       end
 

@@ -5,11 +5,10 @@ http_interactions:
     uri: https://admin.vanilapay.com/api/v2/withdrawal
     body:
       encoding: UTF-8
-      string: '{"order_id":"123","method":"wallet","amount":"1.0","account":"12345","notification_url":"http://some.url/callback","success_url":"http://some.url/callback","fail_url":"http://some.url/callback","card_number":"4242424242424242","card_expire":"01/25","card_cvv":"123","ext_txn":"123","ext_date":"2020-01-01T00:00:00+03:00","ext_email":"test@mail.com","ext_ip":"127.0.0.1","ext_recipient_system":"Payeer
-        EUR","ext_recipient":"P121321","ext_c_to":"PREUR","card_type":"visa"}'
+      string: '{"order_id":"9911_4","method":"card","account":"4242424242424242","amount":"1.00","notification_url":"http://some.url/callback","success_url":"http://some.url/callback","fail_url":"http://some.url/callback"}'
     headers:
       Authorization:
-      - Bearer wE5V6Jh51mdh3ZQ1LuJCDZC6Gw6SHvZ9curDSEBmdSjh8CDCS33puZJ71fGNgzmx
+      - Bearer 8ub1ReV5EwrZDLQS3LkwgQ19r1muidGYcPMBuvVt7VDFBGKwoeWXTg8mohZXFMu8
       Content-Type:
       - application/json
       Accept-Encoding:
@@ -24,7 +23,7 @@ http_interactions:
       message: Unprocessable Entity
     headers:
       Date:
-      - Wed, 19 Apr 2023 15:28:09 GMT
+      - Mon, 24 Apr 2023 14:43:27 GMT
       Content-Type:
       - application/json
       Transfer-Encoding:
@@ -42,19 +41,19 @@ http_interactions:
       Cf-Cache-Status:
       - DYNAMIC
       Report-To:
-      - '{"endpoints":[{"url":"https:\/\/a.nel.cloudflare.com\/report\/v3?s=YT65Z5C6dfIhewN25wz%2B83311v3cCtMj5CKcnj%2B%2F69bnDf7%2FumhiTm6TVGGK4Q4fKvS%2FnodTDO%2B7T%2BT07W%2BXc9r3h9DzhTxTVyRjlEvFIWxA8THjG%2FVCw3nlktol5xY6oC8%2B5zc6"}],"group":"cf-nel","max_age":604800}'
+      - '{"endpoints":[{"url":"https:\/\/a.nel.cloudflare.com\/report\/v3?s=fRtLDOA3xjfD2zyefnQNWfYNzANf%2FXwrIok76BXVbzh8DhmICJqxKl1Gcmurrz1sVg8JeCjxlTKWzLrjiozoUXjvndGzn7ihAsb33GLIhuRazYXJxCiApduanWM2o1RKtJtM%2FR4%2B"}],"group":"cf-nel","max_age":604800}'
       Nel:
       - '{"success_fraction":0,"report_to":"cf-nel","max_age":604800}'
       Server:
       - cloudflare
       Cf-Ray:
-      - 7ba62cf66f58d922-HEL
+      - 7bcf1e5ebfbfb50c-OSL
       Alt-Svc:
       - h3=":443"; ma=86400, h3-29=":443"; ma=86400
     body:
       encoding: UTF-8
       string: '{"message":"The given data was invalid","errors":{"amount":["Min amount
-        is 500.00."]}}'
+        is 10.00."]}}'
     http_version:
-  recorded_at: Wed, 19 Apr 2023 15:28:09 GMT
+  recorded_at: Mon, 24 Apr 2023 14:43:27 GMT
 recorded_with: VCR 5.1.0
