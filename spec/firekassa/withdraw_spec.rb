@@ -47,7 +47,7 @@ RSpec.describe Firekassa::Withdraw do
         "payment_id" => "363092417",
         "payment_url" => nil,
         "status" => "process",
-        "updated_at" => "2023-04-24T17:37:39+03:00",
+        "updated_at" => "2023-04-24T17:37:39+03:00"
       }
     end
 
@@ -119,7 +119,7 @@ RSpec.describe Firekassa::Withdraw do
         {
           "amount" => "165.04",
           "message" => "Вывод на сумму: 165.04₽, по курсу: 1$ = 82.52₽",
-          "rate" => "82.5200",
+          "rate" => "82.5200"
         }
       end
 
