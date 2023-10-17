@@ -7,6 +7,7 @@ require "firekassa/balance"
 require "firekassa/transaction"
 require "firekassa/deposit"
 require "firekassa/withdraw"
+require "firekassa/invoice"
 
 # Head module
 module Firekassa

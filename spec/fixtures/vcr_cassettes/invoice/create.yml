@@ -1,0 +1,60 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://admin.vanilapay.com/api/v2/invoices
+    body:
+      encoding: UTF-8
+      string: '{"order_id":"21231231","payment_methods":["card"],"amount":"120.0","notification_url":"http://some.url/callback","success_url":"http://some.url/callback","fail_url":"http://some.url/callback"}'
+    headers:
+      Authorization:
+      - Bearer wE5V6Jh51mdh3ZQ1LuJCDZC6Gw6SHvZ9curDSEBmdSjh8CDCS33puZJ71fGNgzmx
+      Content-Type:
+      - application/json
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 201
+      message: Created
+    headers:
+      Date:
+      - Tue, 17 Oct 2023 18:53:26 GMT
+      Content-Type:
+      - application/json
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      X-Powered-By:
+      - PHP/8.2.5
+      Cache-Control:
+      - no-cache, private
+      Content-Language:
+      - ru_RU
+      Vary:
+      - Accept-Language
+      Cf-Cache-Status:
+      - DYNAMIC
+      Report-To:
+      - '{"endpoints":[{"url":"https:\/\/a.nel.cloudflare.com\/report\/v3?s=bx6UF7YOTOMTkxP7GTffP5eHBG3jHEAmGtkUV4X8DvJ4l8Ipkff42PaFA6eiE%2FI8Qjk6NKNBNewD0pKnm2UH6syLE%2Fp5n3psNF%2B2c2Op%2FS6ryTfIz7m8jI7QTNwldatis%2FtD5FlP"}],"group":"cf-nel","max_age":604800}'
+      Nel:
+      - '{"success_fraction":0,"report_to":"cf-nel","max_age":604800}'
+      Strict-Transport-Security:
+      - max-age=31536000
+      Server:
+      - cloudflare
+      Cf-Ray:
+      - 817abe8d4c361685-ARN
+      Alt-Svc:
+      - h3=":443"; ma=86400
+    body:
+      encoding: UTF-8
+      string: '{"id":"511727028","payment_url":"https:\/\/pay.castelvania.net\/69d039ce-ef4f-4da8-b28f-48e71c203417"}'
+    http_version:
+  recorded_at: Tue, 17 Oct 2023 18:53:26 GMT
+recorded_with: VCR 5.1.0
