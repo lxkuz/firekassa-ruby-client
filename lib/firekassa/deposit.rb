@@ -20,15 +20,15 @@ module Firekassa
     end
 
     def create_sbpa(data)
-      create('sbp-a', data)
+      create("sbp-a", data)
     end
 
     def create_usdt_trc20(data)
-      create('usdt-trc20', data)
+      create("usdt-trc20", data)
     end
 
     def create_usdt_erc20(data)
-      create('usdt-erc20', data)
+      create("usdt-erc20", data)
     end
   end
 end

@@ -20,19 +20,19 @@ RSpec.describe Firekassa::Deposit do
       {
         order_id: "11_03_2024_18_37",
         amount: "100.0",
-        site_account: "sber",
+        site_account: "sber"
       }
     end
 
     let(:deposit_response) do
       {
-        'amount' => '100.00',
-        'card_number' => '4242424242424242',
-        'commission' => '2.00',
-        'first_name' => 'test',
-        'id' => '516551333',
-        'last_name' => 'test',
-        'middle_name' => 'test'
+        "amount" => "100.00",
+        "card_number" => "4242424242424242",
+        "commission" => "2.00",
+        "first_name" => "test",
+        "id" => "516551333",
+        "last_name" => "test",
+        "middle_name" => "test"
       }
     end
 
