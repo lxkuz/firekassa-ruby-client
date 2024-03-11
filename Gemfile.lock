@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    firekassa (0.1.4)
+    firekassa (0.1.5)
       faraday (~> 1.0)
 
 GEM
