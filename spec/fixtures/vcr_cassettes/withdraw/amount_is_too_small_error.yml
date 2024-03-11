@@ -5,7 +5,7 @@ http_interactions:
     uri: https://admin.vanilapay.com/api/v2/withdrawal/card
     body:
       encoding: UTF-8
-      string: '{"order_id":"11_03_2024_17_49","site_account":"sber","account":"2200700168000817","amount":"1.00"}'
+      string: '{"order_id":"11_03_2024_17_49","site_account":"sber","account":"4242424242424242","amount":"1.00"}'
     headers:
       Authorization:
       - Bearer testtokenvalue

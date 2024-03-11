@@ -20,7 +20,7 @@ RSpec.describe Firekassa::Withdraw do
       {
         order_id: "11_03_2024_17_49",
         site_account: "sber",
-        account: "2200700168000817",
+        account: "4242424242424242",
         amount: "101.00"
       }
     end
