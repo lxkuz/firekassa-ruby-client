@@ -2,13 +2,13 @@
 http_interactions:
 - request:
     method: post
-    uri: https://admin.vanilapay.com/api/v2/deposit
+    uri: https://admin.vanilapay.com/api/v2/deposit/card
     body:
       encoding: UTF-8
-      string: '{"order_id":"123","method":"h2h-a","amount":"1.0","notification_url":"http://some.url/callback","success_url":"http://some.url/callback","fail_url":"http://some.url/callback","card_number":"4242424242424242","card_expire":"01/25","card_cvv":"123"}'
+      string: '{"order_id":"11_03_2024_18_37","amount":"1.0","site_account":"sber"}'
     headers:
       Authorization:
-      - Bearer wE5V6Jh51mdh3ZQ1LuJCDZC6Gw6SHvZ9curDSEBmdSjh8CDCS33puZJ71fGNgzmx
+      - Bearer testtokenvalue
       Content-Type:
       - application/json
       Accept-Encoding:
@@ -23,7 +23,7 @@ http_interactions:
       message: Unprocessable Entity
     headers:
       Date:
-      - Wed, 19 Apr 2023 14:40:14 GMT
+      - Mon, 11 Mar 2024 13:40:03 GMT
       Content-Type:
       - application/json
       Transfer-Encoding:
@@ -31,7 +31,7 @@ http_interactions:
       Connection:
       - keep-alive
       X-Powered-By:
-      - PHP/8.1.11
+      - PHP/8.3.1
       Cache-Control:
       - no-cache, private
       Content-Language:
@@ -41,19 +41,21 @@ http_interactions:
       Cf-Cache-Status:
       - DYNAMIC
       Report-To:
-      - '{"endpoints":[{"url":"https:\/\/a.nel.cloudflare.com\/report\/v3?s=f33zEXLgAcyYP9USUJ%2FtWo%2B1CXRxZW8AAjKar4Q2IkiSYH%2FEoGV6DdcIlLZXTaHQ6emUSl2SNF0Gy86DEpTDpgUqjd33F8EYZ9w2XS9h18ZF8QgTLcLJPdVPvh1Re%2B%2BwClBPGvm%2F"}],"group":"cf-nel","max_age":604800}'
+      - '{"endpoints":[{"url":"https:\/\/a.nel.cloudflare.com\/report\/v3?s=1yTxmPklOJWSwqf7ZlLPyq3L8seQkl85fK2PjIwMHZBcJJCafprcXSrnL6Jm9LSV0Zy%2BmMYuewgtFVxSB2htHKktw9TLFvJuFdLCIUZ6Vuol507Dz7PkjCQ%2BRmeS8rGGQ0Cv%2FKJg"}],"group":"cf-nel","max_age":604800}'
       Nel:
       - '{"success_fraction":0,"report_to":"cf-nel","max_age":604800}'
+      Strict-Transport-Security:
+      - max-age=31536000
       Server:
       - cloudflare
       Cf-Ray:
-      - 7ba5e6c89a50d93b-HEL
+      - 862bf4416ce5774b-AMS
       Alt-Svc:
-      - h3=":443"; ma=86400, h3-29=":443"; ma=86400
+      - h3=":443"; ma=86400
     body:
       encoding: UTF-8
       string: '{"message":"The given data was invalid","errors":{"amount":["Min amount
-        is 5000.00"]}}'
+        is 100.00"]}}'
     http_version:
-  recorded_at: Wed, 19 Apr 2023 14:40:14 GMT
+  recorded_at: Mon, 11 Mar 2024 13:40:03 GMT
 recorded_with: VCR 5.1.0

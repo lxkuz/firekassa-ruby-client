@@ -34,7 +34,6 @@ Now you can make API calls
 ```ruby
   Firekassa::Balance.new.get # => { "balance": "2000.0" }
 ```
-See [API method reference](https://admin.vanilapay.com/api/doc/v2#/operations/getBalance)
 
 ### Account
 
@@ -42,14 +41,13 @@ See [API method reference](https://admin.vanilapay.com/api/doc/v2#/operations/ge
 ```ruby
   Firekassa::Account.new.list # => items: [ ... ]
 ```
-See more info in tests and [API method reference](https://admin.vanilapay.com/api/doc/v2#/operations/getSiteAccounts)
+See more info in tests
 
 #### To show your concrete account info:
 ```ruby
   Firekassa::Balance.new.show(account_id) # => { account_data... }
 ```
-See more info in tests and [API method reference](https://admin.vanilapay.com/api/doc/v2#/operations/getSiteAccount)
-
+See more info in tests
 
 ### Transactions
 
@@ -57,73 +55,62 @@ See more info in tests and [API method reference](https://admin.vanilapay.com/ap
 ```ruby
   Firekassa::Transaction.new.list # => {items:[ trxs...] }
 ```
-See more info in tests and [API method reference](https://admin.vanilapay.com/api/doc/v2#/operations/getTransactions)
+See more info in tests
 
-#### To create deposit:
+#### To create deposit type:card:
 ```ruby
   deposit_data = {
     order_id: "123", # payment ID from your system
-    method: "h2h-a", # host to host payment
     amount: "5000.0",
     # callbacks
     notification_url: "http://some.url/callback",
     success_url: "http://some.url/callback",
     fail_url: "http://some.url/callback",
-    # card credentials
-    card_number: "4242424242424242",
-    card_expire: "01/25",
-    card_cvv: "123"
   }
-  result = Firekassa::Deposit.new.create(deposit_data)
-  payment_url = result['payment_url'] # Customer should visit this link to proceed the payment
+  result = Firekassa::Deposit.new.create_card(deposit_data)
+  # it responds card credentials for making payment
 ```
-See more info in tests and [API method reference](https://admin.vanilapay.com/api/doc/v2#/operations/createDepositTransaction)
+See more info in tests
 
-#### To create withdrawal:
+#### To create withdrawal type:card:
 ```ruby
+  # for card
   withdraw_data = {
     order_id: "123123", # payment ID from your system
-    method: "card",
     account: "4242424242424242",
+    site_account: 'sber',
     amount: "100.00",
     # callbacks
     notification_url: "http://some.url/callback",
-    success_url: "http://some.url/callback",
-    fail_url: "http://some.url/callback"
   }
-  Firekassa::Withdraw.new.create(withdraw_data) # => { trx data... }
+  Firekassa::Withdraw.new.create_card(withdraw_data) # => { trx data... }
 ```
-See more info in tests and [API method reference](https://admin.vanilapay.com/api/doc/v2#/operations/createWithdrawalTransaction)
+See more info in tests
 
 #### To show transaction data:
 ```ruby
   Firekassa::Transaction.new.show(deposit_id) # => { trx data... }
 ```
-See more info in tests and [API method reference](https://admin.vanilapay.com/api/doc/v2#/operations/getTransaction)
+See more info in tests
 
 #### Cancel transaction:
 ```ruby
   Firekassa::Transaction.new.cancel(id) # => { trx data... }
 ```
-See more info in tests and [API method reference](https://admin.vanilapay.com/api/doc/v2#/operations/cancelTransaction)
+See more info in tests
 
-#### To get currency rate for withdrawal:
-```ruby
-  Firekassa::Withdraw.new.currency_rate(data) # => { rate data... }
-```
-See more info in tests and [API method reference](https://admin.vanilapay.com/api/doc/v2#/operations/getWithdrawalRate)
 
 #### To download transaction receipt:
 ```ruby
   Firekassa::Transaction.new.download_receipt(id)
 ```
-See more info in tests and [API method reference](https://admin.vanilapay.com/api/doc/v2#/operations/downloadTransactionReceipt)
+See more info in tests
 
 To send transaction receipt to email:
 ```ruby
   Firekassa::Transaction.new.send_to_email(id)
 ```
-See more info in tests and [API method reference](https://admin.vanilapay.com/api/doc/v2#/operations/sendTransactionReceipt)
+See more info in tests
 
 ## Development
 

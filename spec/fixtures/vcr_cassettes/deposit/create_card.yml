@@ -2,13 +2,13 @@
 http_interactions:
 - request:
     method: post
-    uri: https://admin.vanilapay.com/api/v2/invoices
+    uri: https://admin.vanilapay.com/api/v2/deposit/card
     body:
       encoding: UTF-8
-      string: '{"order_id":"21231231","payment_methods":["card"],"amount":"120.0","notification_url":"http://some.url/callback","success_url":"http://some.url/callback","fail_url":"http://some.url/callback"}'
+      string: '{"order_id":"11_03_2024_18_37","amount":"100.0","site_account":"sber"}'
     headers:
       Authorization:
-      - Bearer wE5V6Jh51mdh3ZQ1LuJCDZC6Gw6SHvZ9curDSEBmdSjh8CDCS33puZJ71fGNgzmx
+      - Bearer testtokenvalue
       Content-Type:
       - application/json
       Accept-Encoding:
@@ -23,7 +23,7 @@ http_interactions:
       message: Created
     headers:
       Date:
-      - Tue, 17 Oct 2023 18:53:26 GMT
+      - Mon, 11 Mar 2024 13:40:03 GMT
       Content-Type:
       - application/json
       Transfer-Encoding:
@@ -31,7 +31,7 @@ http_interactions:
       Connection:
       - keep-alive
       X-Powered-By:
-      - PHP/8.2.5
+      - PHP/8.3.1
       Cache-Control:
       - no-cache, private
       Content-Language:
@@ -41,7 +41,7 @@ http_interactions:
       Cf-Cache-Status:
       - DYNAMIC
       Report-To:
-      - '{"endpoints":[{"url":"https:\/\/a.nel.cloudflare.com\/report\/v3?s=bx6UF7YOTOMTkxP7GTffP5eHBG3jHEAmGtkUV4X8DvJ4l8Ipkff42PaFA6eiE%2FI8Qjk6NKNBNewD0pKnm2UH6syLE%2Fp5n3psNF%2B2c2Op%2FS6ryTfIz7m8jI7QTNwldatis%2FtD5FlP"}],"group":"cf-nel","max_age":604800}'
+      - '{"endpoints":[{"url":"https:\/\/a.nel.cloudflare.com\/report\/v3?s=B2rkofhrj1KuMKRI%2FSiyRxCt1Vtt7cgqV9WgxFKq%2FZhnkPN2SFKHEdWUVzAM4d1hOXInCt5vWcUNlQYl3wyB7Dd3l%2FnNBajOGq%2BsSkEDc5Pe6nBYxr3%2BbsrZWYFg%2BoCQwgZN%2BGvE"}],"group":"cf-nel","max_age":604800}'
       Nel:
       - '{"success_fraction":0,"report_to":"cf-nel","max_age":604800}'
       Strict-Transport-Security:
@@ -49,12 +49,12 @@ http_interactions:
       Server:
       - cloudflare
       Cf-Ray:
-      - 817abe8d4c361685-ARN
+      - 862bf439cc9a6655-AMS
       Alt-Svc:
       - h3=":443"; ma=86400
     body:
       encoding: UTF-8
-      string: '{"id":"511727028","payment_url":"https:\/\/pay.castelvania.net\/69d039ce-ef4f-4da8-b28f-48e71c203417"}'
+      string: '{"id":"516551333","amount":"100.00","commission":"2.00","card_number":"4242424242424242","last_name":"test","first_name":"test","middle_name":"test"}'
     http_version:
-  recorded_at: Tue, 17 Oct 2023 18:53:26 GMT
+  recorded_at: Mon, 11 Mar 2024 13:40:03 GMT
 recorded_with: VCR 5.1.0
